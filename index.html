@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="Sua conta digital: saldo, Pix, transferências e extrato em um só lugar." />
+    <title>Vitta — sua conta digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="login-screen" class="login-screen">
+      <section class="login-art" aria-label="Apresentação da Vitta">
+        <a class="brand brand-light" href="#" aria-label="Vitta início">
+          <span class="brand-symbol">v.</span><span>vitta</span>
+        </a>
+        <div class="art-copy">
+          <span class="eyebrow">SEU DINHEIRO, DO SEU JEITO</span>
+          <h1>Mais leve para você.<br /><span>Mais simples para sua vida.</span></h1>
+          <p>Uma conta que acompanha seus planos — e deixa o complicado do lado de fora.</p>
+        </div>
+        <div class="art-card">
+          <div class="art-card-top"><span>Seu saldo disponível</span><span class="live-dot"></span></div>
+          <strong>R$ 8.450,90</strong>
+          <div class="art-card-footer"><span>Conta digital Vitta</span><span>•••• 2841</span></div>
+        </div>
+        <span class="art-decoration decoration-one"></span><span class="art-decoration decoration-two"></span>
+        <div class="art-bottom">Feita para a sua vida acontecer. <span>✳</span></div>
+      </section>
+
+      <section class="login-panel">
+        <div class="login-mobile-brand brand"><span class="brand-symbol">v.</span><span>vitta</span></div>
+        <div class="login-content">
+          <span class="eyebrow">BEM-VINDA DE VOLTA</span>
+          <h2>Entre na sua conta</h2>
+          <p class="login-subtitle">Acesse sua conta digital com segurança.</p>
+          <form id="login-form" class="form-stack">
+            <label for="login-email">E-mail</label>
+            <div class="input-wrap"><span class="input-icon">✉</span><input id="login-email" type="email" placeholder="voce@email.com" autocomplete="email" required /></div>
+            <label for="login-password">Senha</label>
+            <div class="input-wrap"><span class="input-icon">⌑</span><input id="login-password" type="password" placeholder="Digite sua senha" autocomplete="current-password" required minlength="4" /><button class="password-toggle" type="button" aria-label="Mostrar senha">◉</button></div>
+            <div id="login-error" class="form-error" role="alert"></div>
+            <button class="text-button forgot-button" type="button" id="forgot-password">Esqueci minha senha</button>
+            <button class="button button-primary login-submit" type="submit">Entrar na minha conta <span>→</span></button>
+          </form>
+          <div class="login-divider"><span>ou</span></div>
+          <button class="button button-outline demo-button" id="demo-login" type="button"><span>✳</span> Conhecer a conta demonstrativa</button>
+          <p class="security-note"><span>⌑</span> Seus dados protegidos com criptografia</p>
+        </div>
+        <footer class="login-footer">Ainda não tem uma conta? <a href="#" id="signup-link">Abra sua conta grátis</a></footer>
+      </section>
+    </main>
+
+    <div id="app-screen" class="app-shell hidden">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="inicio"><span class="brand-symbol">v.</span><span>vitta</span></a>
+        <span class="nav-caption">MENU PRINCIPAL</span>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <button class="nav-item active" data-page="inicio"><span class="nav-icon">⌂</span> Visão geral</button>
+          <button class="nav-item" data-page="pix"><span class="nav-icon">✳</span> Área Pix <span class="nav-new">rápido</span></button>
+          <button class="nav-item" data-page="transferir"><span class="nav-icon">↗</span> Transferir</button>
+          <button class="nav-item" data-page="extrato"><span class="nav-icon">▤</span> Extrato</button>
+        </nav>
+        <div class="sidebar-help"><div class="help-icon">?</div><strong>Precisa de ajuda?</strong><p>A gente está por aqui para você.</p><button id="support-button">Falar com a Vitta <span>→</span></button></div>
+        <button class="sidebar-profile" id="profile-button"><span class="avatar">MA</span><span><strong>Marina Alves</strong><small>Conta pessoal</small></span><span class="profile-more">···</span></button>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Abrir menu">☰</button>
+          <div class="breadcrumb"><span>Minha conta</span><span>/</span><strong id="page-breadcrumb">Visão geral</strong></div>
+          <div class="topbar-actions"><span class="today-label" id="today-label"></span><button class="icon-button notification-button" aria-label="Notificações">♧<i></i></button><span class="topbar-avatar">MA</span></div>
+        </header>
+
+        <div class="page-container">
+          <section id="page-inicio" class="page active-page">
+            <div class="welcome-row"><div><span class="eyebrow">QUARTA-FEIRA, 12 DE NOVEMBRO</span><h1>Bom dia, Marina <span class="wave">✳</span></h1><p>Que bom ter você por aqui. Veja como está sua conta.</p></div><button class="button button-primary welcome-transfer" data-page="transferir"><span>↗</span> Fazer transferência</button></div>
+            <div class="dashboard-grid">
+              <article class="balance-card">
+                <div class="balance-top"><span>Saldo disponível</span><button id="toggle-balance" class="balance-visibility" aria-label="Ocultar saldo">◉</button></div>
+                <strong id="balance-value">R$ 8.450,90</strong>
+                <span class="balance-account">Conta corrente <span>•</span> Ag. 0001 <span>•</span> Conta 2841-6</span>
+                <div class="balance-bottom"><span class="balance-change">↗ <strong>12,8%</strong> <span>este mês</span></span><span class="balance-card-brand">vitta<span>.</span></span></div>
+                <span class="balance-shape"></span>
+              </article>
+              <article class="income-card"><span class="stat-icon income-icon">↙</span><span class="stat-label">Entradas este mês</span><strong>R$ 6.240,00</strong><span class="stat-caption"><span class="positive">↗ 8,2%</span> em relação ao mês passado</span><div class="sparkline income-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+              <article class="expense-card"><span class="stat-icon expense-icon">↗</span><span class="stat-label">Saídas este mês</span><strong id="expenses-value">R$ 2.189,10</strong><span class="stat-caption"><span class="neutral">↘ 3,4%</span> em relação ao mês passado</span><div class="sparkline expense-spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+            </div>
+
+            <section class="quick-section">
+              <div class="section-heading"><div><h2>O que você quer fazer?</h2><p>Resolva tudo em poucos toques.</p></div></div>
+              <div class="quick-actions">
+                <button class="quick-action" data-page="pix"><span class="quick-icon pix-icon">✳</span><span><strong>Fazer um Pix</strong><small>Na hora, sem tarifas</small></span><span class="quick-arrow">→</span></button>
+                <button class="quick-action" data-page="transferir"><span class="quick-icon transfer-icon">↗</span><span><strong>Transferir</strong><small>Para qualquer banco</small></span><span class="quick-arrow">→</span></button>
+                <button class="quick-action" data-page="extrato"><span class="quick-icon statement-icon">▤</span><span><strong>Ver extrato</strong><small>Acompanhe sua conta</small></span><span class="quick-arrow">→</span></button>
+              </div>
+            </section>
+
+            <section class="transactions-section">
+              <div class="section-heading transaction-heading"><div><h2>Últimas movimentações</h2><p>Fique de olho no que acontece na sua conta.</p></div><button class="text-button" data-page="extrato">Ver extrato completo <span>→</span></button></div>
+              <div class="transactions-card"><div class="transaction-table-head"><span>DESCRIÇÃO</span><span>DATA</span><span>VALOR</span><span></span></div><div id="recent-transactions"></div></div>
+            </section>
+            <footer class="page-footer"><span>Vitta Instituição de Pagamento S.A. · CNPJ 12.345.678/0001-90</span><span>Feita com carinho para você <span class="footer-heart">♥</span></span></footer>
+          </section>
+
+          <section id="page-pix" class="page">
+            <div class="page-title"><span class="eyebrow">DINHEIRO NA HORA, DO SEU JEITO</span><h1>Área Pix <span class="pix-heading-icon">✳</span></h1><p>Envie e receba dinheiro a qualquer hora, sem pagar nada por isso.</p></div>
+            <div class="pix-content-grid">
+              <article class="pix-main-card">
+                <span class="pix-large-icon">✳</span><h2>Fazer um Pix</h2><p>Escolha como quer enviar. É rápido, fácil e cai na hora.</p>
+                <form id="pix-form" class="operation-form">
+                  <label for="pix-key-type">Tipo de chave Pix</label>
+                  <select id="pix-key-type" required><option value="">Selecione o tipo de chave</option><option value="cpf">CPF</option><option value="email">E-mail</option><option value="phone">Celular</option><option value="random">Chave aleatória</option></select>
+                  <label for="pix-key">Chave Pix de quem vai receber</label>
+                  <input id="pix-key" type="text" placeholder="Digite a chave Pix" required />
+                  <label for="pix-recipient">Nome de quem vai receber</label>
+                  <input id="pix-recipient" type="text" placeholder="Nome completo" required />
+                  <label for="pix-amount">Qual o valor do Pix?</label>
+                  <div class="currency-input"><span>R$</span><input id="pix-amount" type="text" inputmode="numeric" placeholder="0,00" required /></div>
+                  <label for="pix-description">Descrição <span class="optional">(opcional)</span></label>
+                  <input id="pix-description" type="text" placeholder="Ex.: divisão do jantar" maxlength="60" />
+                  <p id="pix-error" class="form-error" role="alert"></p>
+                  <button class="button button-primary full-button" type="submit">Revisar Pix <span>→</span></button>
+                  <span class="secure-caption">⌑ Transação protegida e criptografada</span>
+                </form>
+              </article>
+              <aside class="pix-side">
+                <article class="pix-info-card"><span class="info-card-icon">⌁</span><h3>Pix sem complicação</h3><p>Transfira em segundos, de dia ou de noite. Até em feriados.</p><div class="info-divider"></div><span class="info-card-icon">♡</span><h3>Sem tarifas</h3><p>Na Vitta, fazer Pix é grátis. Sempre.</p><div class="info-divider"></div><span class="info-card-icon">⌑</span><h3>Com segurança</h3><p>Seus dados e seu dinheiro estão sempre protegidos.</p></article>
+                <article class="pix-limit-card"><span>Seu limite Pix diário</span><strong>R$ 5.000,00</strong><div class="limit-track"><i></i></div><small>R$ 0,00 usados hoje</small></article>
+              </aside>
+            </div>
+          </section>
+
+          <section id="page-transferir" class="page">
+            <div class="page-title"><span class="eyebrow">UM PASSO E PRONTO</span><h1>Transferir dinheiro <span class="title-spark">↗</span></h1><p>Envie dinheiro para qualquer banco, com tranquilidade.</p></div>
+            <div class="transfer-layout">
+              <article class="transfer-card">
+                <div class="transfer-step"><span>1</span><div><h2>Dados da transferência</h2><p>Preencha as informações de quem vai receber.</p></div></div>
+                <form id="transfer-form" class="operation-form">
+                  <label for="transfer-name">Nome completo de quem vai receber</label><input id="transfer-name" type="text" placeholder="Ex.: Ana Souza" required minlength="3" />
+                  <div class="field-row"><div><label for="transfer-document">CPF ou CNPJ</label><input id="transfer-document" type="text" inputmode="numeric" placeholder="000.000.000-00" required /></div><div><label for="transfer-bank">Banco</label><select id="transfer-bank" required><option value="">Selecione o banco</option><option>Banco do Brasil</option><option>Bradesco</option><option>Caixa Econômica Federal</option><option>Itaú</option><option>Nubank</option><option>Inter</option><option>Santander</option><option>Outro banco</option></select></div></div>
+                  <div class="field-row"><div><label for="transfer-agency">Agência</label><input id="transfer-agency" type="text" inputmode="numeric" placeholder="0001" required maxlength="6" /></div><div><label for="transfer-account">Conta com dígito</label><input id="transfer-account" type="text" inputmode="numeric" placeholder="12345-6" required /></div></div>
+                  <label for="transfer-amount">Valor da transferência</label><div class="currency-input"><span>R$</span><input id="transfer-amount" type="text" inputmode="numeric" placeholder="0,00" required /></div>
+                  <label for="transfer-description">Descrição <span class="optional">(opcional)</span></label><input id="transfer-description" type="text" placeholder="Ex.: aluguel de novembro" maxlength="60" />
+                  <p id="transfer-error" class="form-error" role="alert"></p>
+                  <button class="button button-primary full-button" type="submit">Continuar <span>→</span></button>
+                  <span class="secure-caption">⌑ Seus dados protegidos com criptografia</span>
+                </form>
+              </article>
+              <aside class="transfer-side"><div class="available-card"><span class="available-icon">◉</span><span>Saldo disponível</span><strong id="transfer-balance">R$ 8.450,90</strong><button class="text-button" data-page="inicio">Ver minha conta →</button></div><div class="help-tip"><span>✳</span><div><strong>Confira antes de enviar</strong><p>Confirme os dados de quem vai receber. Transferências concluídas não podem ser canceladas.</p></div></div></aside>
+            </div>
+          </section>
+
+          <section id="page-extrato" class="page">
+            <div class="page-title statement-title"><div><span class="eyebrow">TUDO SOB CONTROLE</span><h1>Extrato da conta <span class="title-spark">▤</span></h1><p>Acompanhe todas as movimentações da sua conta.</p></div><button class="button button-outline download-button" id="download-statement"><span>↓</span> Baixar extrato</button></div>
+            <div class="statement-balance"><div><span>Saldo disponível</span><strong id="statement-balance">R$ 8.450,90</strong></div><div class="statement-account">Conta corrente · Ag. 0001 · Conta 2841-6</div><span class="statement-balance-icon">◉</span></div>
+            <div class="filter-card"><div class="filter-title"><span class="filter-icon">⚑</span><div><strong>Filtrar movimentações</strong><small>Escolha um período para consultar.</small></div></div><form id="filter-form" class="filter-controls"><div><label for="filter-start">De</label><input type="date" id="filter-start" /></div><div><label for="filter-end">Até</label><input type="date" id="filter-end" /></div><div><label for="filter-type">Tipo de movimentação</label><select id="filter-type"><option value="all">Todas as movimentações</option><option value="entrada">Entradas</option><option value="saida">Saídas</option></select></div><button class="button button-primary filter-button" type="submit">Filtrar <span>⌕</span></button><button class="clear-filters" type="button" id="clear-filters">Limpar</button></form><p id="filter-error" class="form-error" role="alert"></p></div>
+            <section class="statement-list"><div class="section-heading"><div><h2>Movimentações</h2><p id="statement-count">Veja todas as entradas e saídas da sua conta.</p></div></div><div class="transactions-card"><div class="transaction-table-head"><span>DESCRIÇÃO</span><span>DATA</span><span>VALOR</span><span></span></div><div id="statement-transactions"></div><p id="empty-transactions" class="empty-state hidden">Nenhuma movimentação encontrada para este período.</p></div></section>
+          </section>
+        </div>
+      </main>
+      <nav class="mobile-nav" aria-label="Navegação rápida"><button class="active" data-page="inicio"><span>⌂</span>Início</button><button data-page="pix"><span>✳</span>Pix</button><button data-page="transferir"><span>↗</span>Transferir</button><button data-page="extrato"><span>▤</span>Extrato</button></nav>
+    </div>
+
+    <div id="confirm-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="confirm-modal"><button class="modal-close" id="close-modal" aria-label="Fechar">×</button><span class="modal-icon">↗</span><span class="eyebrow">SÓ MAIS UMA CONFERIDA</span><h2 id="modal-title">Confirme os dados</h2><p>Confira tudo com atenção antes de confirmar.</p><div class="review-details"><div><span>Quem recebe</span><strong id="review-recipient"></strong></div><div><span>Banco / chave Pix</span><strong id="review-destination"></strong></div><div><span>Valor</span><strong id="review-amount"></strong></div><div><span>Descrição</span><strong id="review-description"></strong></div></div><p id="modal-error" class="form-error" role="alert"></p><button class="button button-primary full-button" id="confirm-transfer">Confirmar transferência <span>→</span></button><button class="text-button modal-cancel" id="cancel-transfer">Voltar e editar</button></div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
